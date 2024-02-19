@@ -2,11 +2,13 @@ package com.example.luv.repository;
 
 import com.example.luv.dto.UserDto;
 import com.example.luv.model.TblUser;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UserRepository extends CrudRepository<TblUser, Integer> {
@@ -16,4 +18,6 @@ public interface UserRepository extends CrudRepository<TblUser, Integer> {
             "join tblUserJapan tuj on tu.userId = tuj.userId \n" +
             "join mstJapan mj on mj.codeLevel = tuj.codeLevel", nativeQuery = true)
     List<UserDto> getListUser();
+
+     Optional<TblUser>  findByUserId(Integer id);
 }
