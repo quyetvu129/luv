@@ -20,7 +20,7 @@ public class UserUpdateService {
     UserRepository userRepository;
 
     public TblUser updateUserService(Integer id, UserInput userDto) {
-        TblUser userUpdate = userRepository.findByUserId(id).orElseThrow(() -> new RuntimeException("Not exists user"));
+        TblUser userUpdate = userRepository.findByUserId(id).orElseThrow(() -> new BusinessException(HttpStatus.NOT_FOUND,"Not exists user"));
 
         userUpdate.setLoginName(userDto.getLoginName());
         userUpdate.setBirthday(userDto.getBirthday());
