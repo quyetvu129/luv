@@ -1,4 +1,4 @@
-package com.example.luv.dto;
+package com.example.luv.dto.response;
 
 import org.apache.tomcat.jni.Local;
 

@@ -1,15 +1,15 @@
 package com.example.luv.controller;
 
-import com.example.luv.dto.UserDto;
+import com.example.luv.dto.response.UserDto;
 import com.example.luv.dto.UserInput;
 import com.example.luv.model.TblUser;
 import com.example.luv.repository.UserRepository;
 import com.example.luv.service.UserUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -20,6 +20,7 @@ public class UserController {
     @Autowired
     private UserUpdateService userUpdateService;
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("/employees")
     public List<UserDto> getListUser() {
         return userRepository.getListUser();

@@ -1,8 +1,7 @@
 package com.example.luv.repository;
 
-import com.example.luv.dto.UserDto;
+import com.example.luv.dto.response.UserDto;
 import com.example.luv.model.TblUser;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -20,4 +19,6 @@ public interface UserRepository extends CrudRepository<TblUser, Integer> {
     List<UserDto> getListUser();
 
      Optional<TblUser>  findByUserId(Integer id);
+
+    Optional<TblUser> findByLoginName(String loginName);
 }
