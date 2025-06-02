@@ -4,6 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Collection;
 
@@ -11,6 +12,7 @@ import java.util.Collection;
 @Table(name = "TblUser")
 public class TblUser implements UserDetails {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userId")
     private Integer userId;
 
@@ -36,7 +38,7 @@ public class TblUser implements UserDetails {
     private String tel;
 
     @Column(name = "birthday")
-    private LocalDate birthday;
+    private Timestamp birthday;
 
     @Column(name = "rule")
     private Integer rule;
@@ -138,11 +140,11 @@ public class TblUser implements UserDetails {
         this.tel = tel;
     }
 
-    public LocalDate getBirthday() {
+    public Timestamp getBirthday() {
         return this.birthday;
     }
 
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(Timestamp birthday) {
         this.birthday = birthday;
     }
 

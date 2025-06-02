@@ -1,12 +1,14 @@
 package com.example.luv.model;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "tblUserJapan")
 public class TblUserJapan {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "dtlUserJpId")
     private Integer dtlUserJpId;
 
@@ -17,10 +19,10 @@ public class TblUserJapan {
     private String codeLevel;
 
     @Column(name = "startDate")
-    private LocalDate startDate;
+    private Timestamp startDate;
 
     @Column(name = "endDate")
-    private LocalDate endDate;
+    private Timestamp endDate;
 
     @Column(name = "total")
     private Integer total;
@@ -49,19 +51,19 @@ public class TblUserJapan {
         this.codeLevel = codeLevel;
     }
 
-    public LocalDate getStartDate() {
+    public Timestamp getStartDate() {
         return this.startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(Timestamp startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public Timestamp getEndDate() {
         return this.endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(Timestamp endDate) {
         this.endDate = endDate;
     }
 

@@ -1,13 +1,11 @@
-package com.example.luv.dto;
+package com.example.luv.dto.response;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.time.LocalDate;
-@Setter
-@Getter
-public class UserInput {
-    private String loginName;
+
+@Data
+public class UserDtoImpl implements UserDto {
     private Integer userId;
     private String fullName;
     private LocalDate birthday;
@@ -17,6 +15,5 @@ public class UserInput {
     private String nameLevel;
     private LocalDate endDate;
     private Integer total;
-
 
 }
